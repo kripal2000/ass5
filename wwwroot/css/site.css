@@ -1,0 +1,71 @@
+﻿body {
+    background-color: lightblue;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: center;
+}
+
+    li a {
+        display: block;
+        color: black;
+        text-align: left;
+        padding: 14px 16px;
+       
+    }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+input[type=text], select {
+    width: 60%;
+    padding: 14px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+input[type=submit] {
+    width: 60%;
+    background-color: #4CAF50;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+   
+}
+
+    input[type=submit]:hover {
+        background-color: #111;
+    }
+
+div {
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+img{
+    height: 60px;
+    width: 60px;
+}
+
+#center {
+    text-align: left;
+}

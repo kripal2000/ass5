@@ -1,0 +1,70 @@
+﻿
+<form method="post" enctype="multipart/form-data" id="form">
+    <input type="file" name="image" id="image" onchange="this.form.submit()" />
+</form>
+
+@if (ViewBag.ImageProcessed == true)
+{
+ 
+    if (ViewBag.FacesDetecting == true)
+    {
+        <img src="data:image/bmp; base,   alt="Image" id="favicon" style="display: none; height: 0; width: 0;" />
+
+        <canvas id="faceCanvas"></canvas>
+
+        <script>
+
+            var canvas = document.getElementById("faceCanvas");
+            var img = document.getElementById("favcicon");
+            canvas.height = img.height;
+            canvas.width = img.width;
+
+            var myfaces = canvas.getContext("2d");
+            myfaces.drawImage(img, 0, 0);
+
+
+            if (seenFound) {
+
+                for (face in Positions) {
+                   
+                    myfaces.lineWidth = 2;
+                 
+
+                    console.log(selectColor(grey));
+                    myfaces.strokeRect(
+                        Positions[face]["Xaxis"],
+                        Positions[face]["Yaxis"],
+                        Positions[face]["WidthX"],
+                        Positions[face]["HeightY"]
+                    );
+                }
+            }
+
+            function selectColor(grey) {
+                if (grey == 0) { grey = Math.floor(Math.random()); }
+
+                var step = 35.5;
+                var randNum = Math.floor(Math.random() * 3);
+
+                var green = Math.floor((length * grey * Math.floor(Math.random() * 3)) % 255);
+                var red = Math.floor((length * grey * Math.floor(Math.random() * 3)) % 255);
+                var blue = Math.floor((length * grey * Math.floor(Math.random() * 3)) % 255);
+
+                // Changing the RGB values at random.
+                switch (randNum) {
+                    case 0: green = 0; break;
+                    case 1: red = 0; break;
+                    case 2: blue = 0; break;
+                }
+
+                // Return the string.
+                var grbcolor = "rgb(" + green + ", " + red + " ," + blue + ")";
+                return grbcolor;
+            }
+        </script>
+    }
+    else
+    {
+        <p>The following image does not contain any faces.</p>
+    }
+}
